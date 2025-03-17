@@ -36,8 +36,9 @@ import {
 import { useToast } from "@chakra-ui/react";
 import ChatLoading from "../ChatLoading";
 import axios from "axios";
-axios.defaults.baseURL =
-  import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_URL = import.meta.env.VITE_API_URL || "https://ccbackend-j3z5.onrender.com";
+
+axios.defaults.baseURL = API_URL;
 import UserListItem from "../UserAvatar/UserListItem";
 import { getSender } from "../../config/chatLogics";
 import { motion, AnimatePresence } from "framer-motion";
@@ -92,7 +93,7 @@ const SideDrawer = () => {
         },
       };
       const { data } = await axios.get(
-        `http://localhost:5000/api/user?search=${search}`,
+        `https://ccbackend-j3z5.onrender.com/api/user?search=${search}`,
         config
       );
       // const { data } = await axios.get(
@@ -132,7 +133,7 @@ const SideDrawer = () => {
       };
 
       const { data } = await axios.post(
-        "http://localhost:5000/api/chat",
+        "https://ccbackend-j3z5.onrender.com/api/chat",
         { userId },
         config
       );

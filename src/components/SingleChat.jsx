@@ -1,6 +1,7 @@
 import React, { useState ,useEffect } from "react";
 import axios from "axios";
-axios.defaults.baseURL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_URL = import.meta.env.VITE_API_URL || "https://ccbackend-j3z5.onrender.com";
+axios.defaults.baseURL = API_URL;
 import { useContext } from "react";
 import { chatContext } from "../Context/context";
 import { Box, Input, Text } from "@chakra-ui/react";
@@ -54,7 +55,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         },
       };
       setLoading(true);
-      const {data} = await axios.get(`http://localhost:5000/api/message/${selectedChat._id}`,config);
+      const {data} = await axios.get(`https://ccbackend-j3z5.onrender.com/api/message/${selectedChat._id}`,config);
       // const {data} = await axios.get(`/api/message/${selectedChat._id}`,config);
       console.log("Fetched Messages:", data); // Debugging 
       setMessages(data);
@@ -159,7 +160,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         };
         console.log("Sending message:", newMessage, "to chat:", selectedChat._id);
         
-        const {data} = await axios.post(`http://localhost:5000/api/message/`,{content:newMessage,chatId:selectedChat._id},config);
+        const {data} = await axios.post(`https://ccbackend-j3z5.onrender.com/api/message/`,{content:newMessage,chatId:selectedChat._id},config);
         
         console.log("Message sent successfully:", JSON.stringify(data, null, 2));
 

@@ -15,21 +15,19 @@ import react from "@vitejs/plugin-react";
 //     },
 //   },
 // });
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [react()],
   server: {
     port: 5001,
     strictPort: true,
     proxy: {
       "/api": {
-        target:
-        process.env.NODE_ENV === "production"
-            ? "https://ccbackend-j3z5.onrender.com" // ✅ Production backend
-            : "http://localhost:5000", // ✅ Local backend
+        
+        target: "https://ccbackend-j3z5.onrender.com", // ✅ Local backend
         changeOrigin: true,
         secure: false,
       },
     },
   },
-});
+}));
 

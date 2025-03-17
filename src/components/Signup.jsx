@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios"
 import { useState } from "react";
 import { Button,  FormControl,  Input, Stack, VStack ,FormLabel, InputRightElement} from "@chakra-ui/react";
 // import { Field } from "./ui/field"
@@ -8,8 +9,9 @@ import { InputGroup } from "@chakra-ui/react";
 // import { createStandaloneToast } from "@chakra-ui/react";
 
 // import { toaster } from "./ui/toaster";
-import axios from "axios"
-axios.defaults.baseURL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
+const API_URL = import.meta.env.VITE_API_URL || "https://ccbackend-j3z5.onrender.com";
+axios.defaults.baseURL = API_URL;
 import { useNavigate  } from 'react-router-dom';
 import { useToast } from '@chakra-ui/react'
 

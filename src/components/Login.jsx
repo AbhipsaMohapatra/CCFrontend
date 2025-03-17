@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios"
 import { useState } from "react";
 import { Button,  FormControl,  Input, Stack, VStack ,FormLabel, InputRightElement} from "@chakra-ui/react";
 
@@ -6,8 +7,10 @@ import { InputGroup } from "@chakra-ui/react";
 // import { createStandaloneToast } from "@chakra-ui/react";
 
 import { useToast } from '@chakra-ui/react'
-import axios from "axios"
-axios.defaults.baseURL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
+const API_URL = import.meta.env.VITE_API_URL || "https://ccbackend-j3z5.onrender.com";
+
+axios.defaults.baseURL = API_URL;
 import { useNavigate  } from 'react-router-dom';
 
 const Login = () => {
@@ -39,7 +42,7 @@ const Login = () => {
 
         },
       };
-      const {data}  = await axios.post("http://localhost:5000/api/user/login",{
+      const {data}  = await axios.post("https://ccbackend-j3z5.onrender.com/api/user/login",{
        email,password
       },config);
       // const {data}  = await axios.post("/api/user/login",{

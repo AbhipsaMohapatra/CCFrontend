@@ -2,7 +2,8 @@ import React from "react";
 import { useContext, useState, useEffect } from "react";
 import { chatContext } from "../Context/context";
 import axios from "axios";
-axios.defaults.baseURL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_URL = import.meta.env.VITE_API_URL || "https://ccbackend-j3z5.onrender.com";
+axios.defaults.baseURL = API_URL;
 import { Box, Button, useToast, Stack, Text, Image } from "@chakra-ui/react";
 import { AddIcon, WarningIcon } from "@chakra-ui/icons";
 import ChatLoading from "./ChatLoading";
@@ -23,7 +24,7 @@ const MyChats = ({ fetchAgain }) => {
         },
       };
       const { data } = await axios.get(
-        "http://localhost:5000/api/chat",
+        "https://ccbackend-j3z5.onrender.com/api/chat",
         config
       );
       // const { data } = await axios.get(

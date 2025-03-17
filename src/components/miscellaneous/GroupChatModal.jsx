@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import {
   Modal,
   ModalOverlay,
@@ -23,8 +24,9 @@ import {
   FormHelperText,
   Input,
 } from "@chakra-ui/react";
-import axios from "axios";
-axios.defaults.baseURL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
+const API_URL = import.meta.env.VITE_API_URL || "https://ccbackend-j3z5.onrender.com";
+axios.defaults.baseURL = API_URL;
 import UserListItem from "../UserAvatar/UserListItem";
 
 import UserBadgeItem from "../UserAvatar/UserBadgeItem";
@@ -59,7 +61,7 @@ const GroupChatModal = ({ children }) => {
         },
       };
       const { data } = await axios.get(
-        `http://localhost:5000/api/user?search=${query}`,
+        `https://ccbackend-j3z5.onrender.com/api/user?search=${query}`,
         config
       );
       // const { data } = await axios.get(
@@ -98,7 +100,7 @@ const GroupChatModal = ({ children }) => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.post(`http://localhost:5000/api/chat/group`,{name:groupChatName,users:JSON.stringify(selectedUsers.map((u)=>u._id))},config);
+      const { data } = await axios.post(`https://ccbackend-j3z5.onrender.com/api/chat/group`,{name:groupChatName,users:JSON.stringify(selectedUsers.map((u)=>u._id))},config);
       setChats([data,...chats]);
       onClose();
       toast({
