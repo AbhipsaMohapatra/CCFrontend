@@ -130,7 +130,7 @@ const submitHandler = async()=>{
       localStorage.setItem("userInfo", JSON.stringify(data));
 
       // navigate("/chats");
-      window.open("/chats", "_blank");
+      window.open("https://ccfrontend.onrender.com/chats", "_blank");
 
 
     }
