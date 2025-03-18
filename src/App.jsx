@@ -5,7 +5,9 @@ import Homepage from './components/Homepage'
 
 // import { createBrowserRouter , RouterProvider } from 'react-router-dom'
 import { chatContext } from './Context/context'
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+// BrowserRouter as Router, Routes, Route,
+import { useNavigate } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 // import { useNavigate } from 'react-router-dom'; 
 // import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 // import FirstPage from './components/FirstPage'
@@ -56,12 +58,14 @@ function App() {
     
      <chatContext.Provider value={{ user, setUser ,selectedChat,setSelectedChat,chats,setChats,notification,setNotification}}>
       <div className='App'>
+        <Router>
         <Routes> {/* ✅ Correct way to handle routing */}
           
           <Route path="/" element={<Homepage />} />
           <Route path="/chats" element={<ChatPage />} />
           <Route path="/code" element={<CodePage />} />
         </Routes>
+        </Router>
       </div>
     </chatContext.Provider>
     
