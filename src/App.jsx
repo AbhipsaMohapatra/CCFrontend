@@ -58,14 +58,14 @@ function App() {
     
      <chatContext.Provider value={{ user, setUser ,selectedChat,setSelectedChat,chats,setChats,notification,setNotification}}>
       <div className='App'>
-        <Router>
+        
         <Routes> {/* ✅ Correct way to handle routing */}
           
           <Route path="/" element={<Homepage />} />
           <Route path="/chats" element={<ChatPage />} />
           <Route path="/code" element={<CodePage />} />
         </Routes>
-        </Router>
+        
       </div>
     </chatContext.Provider>
     
