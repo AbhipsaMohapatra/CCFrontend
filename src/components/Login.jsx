@@ -60,7 +60,7 @@ const Login = () => {
       setLoading(false);
 
       // navigate("/chats");
-      window.open("https://ccfrontend.onrender.com/chats", "_blank");
+      window.open("/chats", "_blank");
 
     }
     catch(e){
