@@ -59,8 +59,8 @@ const Login = () => {
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
 
-      // navigate("/chats");
-      window.open("/chats", "_blank");
+      navigate("/chats");
+      // window.open("/chats", "_blank");
 
     }
     catch(e){
